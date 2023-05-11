@@ -1,19 +1,13 @@
 import sys
 
 N, M = map(int, sys.stdin.readline().rstrip().split())
-basket = []
-
-for _ in range(N):
-    basket.append([])
+basket = [[0] for i in range(N)]
 
 for _ in range(M):
     i, j, k = map(int, sys.stdin.readline().rstrip().split())
 
     for n in range(i - 1, j):
-        basket[n].append(k)
+        basket[n][0] = k
 
 for m in range(N):
-    if len(basket[m]) != 0:
-        print(basket[m][-1], end=' ')
-    else:
-        print(0, end=' ')
+    print(basket[m][-1], end=' ')
